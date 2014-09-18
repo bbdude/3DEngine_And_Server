@@ -1,12 +1,3 @@
-/*
-Coded by Robel Sharma
-Date: 20-08-2013
-If you use in any product please
-make sure to write my credits
-
-*/
-// ServerDlg.cpp : implementation file
-//
 
 #include "stdafx.h"
 #include "Server.h"

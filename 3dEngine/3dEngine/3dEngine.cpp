@@ -240,12 +240,14 @@ int main(int argc, char** argv)
 	//ClientDlg cld = ClientDlg();
 	m_pClient = new ClientDlg();// = new ClientCon();// = new ClientCon(void);
 	m_pClient->m_pClient = new ClientCon();
-	m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testU");
+	//m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testU");
+	m_pClient->m_pClient->StartConnect("10.15.20.143", 85, "testU");
+	gcon.username = "testU";// = char[]{ 't', 'e', 's', 't', 'U' };
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(gcon.screen.x, gcon.screen.y);
 	glutInitWindowPosition(50, 50);
-	glutCreateWindow("Darths 3d engine, Fo Shizzle");
+	glutCreateWindow("Darths R6 Demake, Fo Shizzle");
 
 	glutDisplayFunc(display);
 	glutIdleFunc(display);

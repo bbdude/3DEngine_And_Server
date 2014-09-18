@@ -143,3 +143,13 @@ void Cube::setColor(GLfloat r, GLfloat g, GLfloat b)
 	color.y = g;
 	color.z = b;
 }
+
+bool Cube::testColl(vector3 player, vector3 playersize)
+{
+	if (player.x > (position.x + size.x)) return false; // box1 is too far right, no collision
+	else if ((player.x + playersize.x) < position.x) return false; // box1 is too far left, no collision
+	else if (player.z > (position.z + (size.x))) return false; // box1 is too far down, no collision
+	else if ((player.z + playersize.x) < position.z - (size.x)) return false; // box1 is too far up, no collision
+	else return true;
+	return false;
+}

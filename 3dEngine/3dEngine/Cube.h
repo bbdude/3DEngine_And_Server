@@ -33,5 +33,6 @@ public:
 	void fill(vector3 position, vector2 size, vector3 color, float angle);
 	void fill(vector3 position, vector2 size, float angle);
 	void setColor(GLfloat r, GLfloat g, GLfloat b);
+	bool testColl(vector3 player, vector3 playersize);
 };
 

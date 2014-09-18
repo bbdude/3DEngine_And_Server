@@ -153,69 +153,28 @@ UINT __cdecl ServerManager::DataThreadFunc(LPVOID pParam)
 	//SendReceiveData(pYourClass);
 
 
+
 	char *message;
-	message = "Welcome to Matrix chat room.\n";
+	message = "Welcome to Darths Server.\n";
 	send(pYourSocket, message, strlen(message), 0);
-	char server_reply[100];
+	char server_reply[2000];
 	int recv_size;
-	string newPos[3] = { "0", "0", "0" };
-	int order = -1;
-	while ((recv_size = recv(pYourSocket, server_reply, 100, 0)) != SOCKET_ERROR)
+
+	while ((recv_size = recv(pYourSocket, server_reply, 2000, 0)) != SOCKET_ERROR)
 	{
 		server_reply[recv_size] = '\0';
 		//m_pDialog->ShowServerInfo("Message Received: "+ string(server_reply));
-		/*int count = 0;
-		for (auto & element : server_reply)
-		{
-			if (count > 6)
-			{
-				if (element != ',')
-					newPos[order] = element;
-				else
-				{
-					order++;
-					if (order == 3)
-					{
-						//for (auto element : newPos[order])
-						//{
-						const char * c = newPos[order].c_str();
-						puts(c);
-						//}
-						order = 0;
-					}
-				}
-			}
-			count++;
-		}*/
-		int count = 0;
-		std::string values = "";
-		for (auto & element : server_reply)
-		{
-			if (count > 6)
-				values += element;
-			//testU >>
-				count++;
-		}
-		std::vector<string> tokens = split(values, ',');
 		for (int i = 1; i <= iCount; i++)
 		{
-			const char * c = tokens[0].c_str();
 			if (send(sArray[i], server_reply, recv_size, 0) < 0)
-			{
-				puts("Send failed");
-			}
-		}
-		/*for (int i = 1; i <= iCount; i++)
-		{
-			if( send(sArray[i] , server_reply, recv_size , 0) < 0)
 			{
 				puts("Send failed");
 				//return -1;
 			}
-		}*/
+		}
 
 	}
-    return 0;
+	return 0;
 }
 
 UINT ServerManager::SendReceiveData(SOCKET cSocket)

@@ -20,6 +20,6 @@ public:
 
 	vector3 position;
 	vector3 speed;
-	vector3 size;
+	//vector3 size;
 };
 

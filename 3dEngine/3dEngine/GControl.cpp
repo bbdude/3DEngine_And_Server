@@ -6,10 +6,12 @@ GControl::GControl(){}
 GControl::~GControl(){}
 void GControl::draw()
 {
-	tree.draw();
-	//test.draw();
-	//floor.draw();
-	abar.draw();
+	//tree.draw();
+	for (auto & element : cubes)
+		element.draw();
+	test.draw();
+	floor.draw();
+	//abar.draw();
 }
 void GControl::update(ClientDlg * dlg)
 {
@@ -17,8 +19,15 @@ void GControl::update(ClientDlg * dlg)
 	updateTimer++;
 	if (updateTimer == 99)
 	{
-		if (!dlg->m_pClient->failure)
-			dlg->m_pClient->SendData(/*"," + */player.position.toString() + ",");
+		//if (!dlg->m_pClient->failure)
+		//	dlg->m_pClient->SendData(/*"," + */player.position.toString() + ",");
+		if (!dlg->m_pClient->failure){
+			string transferPos = "";
+			std::ostringstream buff;
+			buff << player.position.x << "," << player.position.z;
+			transferPos += buff.str();
+			dlg->m_pClient->SendData(transferPos);
+		}
 	}
 	else if (updateTimer >= 100)
 	{
@@ -31,7 +40,67 @@ void GControl::update(ClientDlg * dlg)
 			{
 				
 				//puts("Reply received\n");
-
+				string retMsg = "";
+				bool read = false;
+				for (int i = 0; i < 5; i++)
+					if (server_reply[i] != username[i])
+					{
+					read = true;
+					}
+				if (read && server_reply[7] != ' ')
+				{
+					server_reply[recv_size] = '\0';
+					puts(server_reply); 
+					for (int i = 7; i <= 20; i++)
+					{
+						if (server_reply[i] == ' ' || server_reply[i] == '\n')
+							break;
+						retMsg += server_reply[i];
+					}
+					/*for (auto element : server_reply)
+					{
+						if (element == ' ')
+							break;
+						retMsg += element;
+					}*/
+				}
+				if (retMsg != "")
+				{
+					size_t pos = 0;
+					std::string delimiter = ",";
+					std::string token;
+					int pas = 0;
+					while ((pos = retMsg.find(delimiter)) != std::string::npos) {
+						token = retMsg.substr(0, pos);
+						switch (pas)
+						{
+						case 0:
+							test.position.x = stof(token);
+							break;
+						case 1:
+							test.position.y = stof(token);
+							break;
+						case 2:
+							test.position.z = stof(token);
+							break;
+						default:
+							break;
+						}
+						//std::cout << token << std::endl;
+						pas++;
+						retMsg.erase(0, pos + delimiter.length());
+					}
+					/*std::vector<float> v;
+					std::istringstream iss(retMsg);
+					std::copy(std::istream_iterator<float>(iss),
+						std::istream_iterator<float>(),
+						std::back_inserter(v));
+					std::copy(v.begin(), v.end(),
+						std::ostream_iterator<float>(std::cout, ","));*/
+					int bob = 5;
+				}
+				
+				
 				//Add a NULL terminating character to make it a proper string before printing
 				/*server_reply[recv_size] = '\0';
 				puts(server_reply);
@@ -44,13 +113,55 @@ void GControl::update(ClientDlg * dlg)
 		}
 		updateTimer = 0;
 	}
+	//bool inbox = false;
 
+	/*if (player.position.x + player.speed.x >= test.position.x && player.position.x + player.speed.x <= test.position.x + test.size.x)
+	{
+		if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
+		{
+			inbox = true;
+		}
+		if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
+		{
+			inbox = true;
+		}
+	}
+	if (player.position.x + player.size.x + player.speed.x >= test.position.x && player.position.x + player.size.x + player.speed.x <= test.position.x + test.size.x)
+	{
+		if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
+		{
+			inbox = true;
+		}
+		if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
+		{
+			inbox = true;
+		}
+	}*/
+
+	for (auto & element : cubes){
+		vector3 newPos = vector3(player.position);
+		newPos.z += 10;
+		newPos.x += player.speed.x;
+		if (element.testColl(newPos, player.size))
+		{
+			newPos.x -= player.speed.x;
+			player.speed.x = 0;
+		}
+		newPos.x -= player.speed.x;
+		newPos.z += player.speed.z;
+		if (element.testColl(newPos, player.size))
+		{
+			newPos.z -= player.speed.z;
+			player.speed.z = 0;
+		}
+
+	}
 	/*switch (keyState.)
 	{
 	default:
 		break;
 	}*/
-	if (keyState['1'])
+	/*if (keyState['1'])
 	{
 		 //icons;
 		std::map<std::string, Icon>::iterator it = abar.icons.find("icon1");
@@ -162,10 +273,12 @@ void GControl::update(ClientDlg * dlg)
 			ico = it->second;
 			abar.icons["icon0"].run();
 		}
-	}
+	}*/
 
-	abar.update();
+	//abar.update();
 	test.update(0, vector3(0, 0, 0));
+	for (auto & element : cubes)
+		element.update(0, player.position);
 	floor.update(0, vector3(0, 0, 0));
 	player.update(true);
 }
@@ -178,16 +291,25 @@ void GControl::init()
 	vector2 size(-1000, 1);
 	floor.fill(position, size, color, 0);
 	floor.init("floor.png");
-
-	position.fill(100, 15, -100);
-	size << vector2(10, 10);
+	/*position.fill(100, -15, -100);
+		size << vector2(25, 50);
+		test.fill(position, size, color, 0);
+		test.init("wood.png");*/
+	size << vector2(25, 50);
 	test.fill(position, size, color, 0);
 	test.init("wood.png");
+	int offset = 0;
+	for (auto & element : cubes){
+		position.fill(100 - offset, -0, -100);
+		element.fill(position, size, color, 0);
+		element.init("wood.png");
+		offset += size.x;
+	}
+	player.size.x = 5;
+	//abar.loadGLTextures("actionBar.png");
+	//abar.loadGLTexturesIco("icon1.png", "icon1");
+	//abar.loadGLTexturesIco("icon2.png", "icon2");
 
-	abar.loadGLTextures("actionBar.png");
-	abar.loadGLTexturesIco("icon1.png", "icon1");
-	abar.loadGLTexturesIco("icon2.png", "icon2");
-
-	tree.loadGLTextures("templateAdvanced.png");
+	//tree.loadGLTextures("templateAdvanced.png");
 
 }

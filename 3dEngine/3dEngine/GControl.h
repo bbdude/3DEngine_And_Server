@@ -13,8 +13,7 @@
 #include "Cube.h"
 #include "Player.h"
 #include "ClientDlg.h"
-#include "ActionBar.h"
-#include "TalentTree.h"
+#include <vector>
 
 class GControl
 {
@@ -23,9 +22,9 @@ public:
 	Player player;
 	Cube floor;
 	Cube test;
-	ActionBar abar = ActionBar();
-	TalentTree tree = TalentTree();
+	std::vector<Cube> cubes = std::vector<Cube>(3);
 	int updateTimer = 0;
+	string username;// = char[] {'t', 'e', 's', 't', 'U'};
 
 	vector2 mouse = vector2(0, 0);
 	vector2 screen = vector2(800, 600);
