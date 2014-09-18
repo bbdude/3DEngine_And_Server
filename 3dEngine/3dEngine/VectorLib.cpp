@@ -118,8 +118,10 @@ vector2 vector2::linearInterp(float alpha,vector2 change)
 	return returnVector;
 }
 
-
-
+std::string vector2::toString()
+{
+	return std::to_string(x) + "," + std::to_string(y);
+}
 
 
 
@@ -173,6 +175,23 @@ void vector3::operator << (vector3 change)
 	x = change.x;
 	y = change.y;
 	z = change.z;
+}
+void vector3::operator << (std::string change)
+{
+	change = change.substr(7);
+	change = change.substr(0, change.length() - 2);
+	size_t pos = 0;
+	std::string token;
+	std::string delimiter = ",";
+	pos = change.find(delimiter);
+	std::string::size_type sz;
+	x = stof(change.substr(0, pos), &sz);
+	y = stof(change.substr(1, pos), &sz);
+	z = stof(change.substr(2, pos), &sz);
+	
+	//x = change.x;
+	//y = change.y;
+	//z = change.z;
 }
 
 vector3 vector3::operator - (vector3 change)
@@ -284,6 +303,10 @@ void vector3::fill(float x, float y, float z)
 }
 
 
+std::string vector3::toString()
+{
+	return std::to_string(x) + "," + std::to_string(y) +"," + std::to_string(z);
+}
 
 
 

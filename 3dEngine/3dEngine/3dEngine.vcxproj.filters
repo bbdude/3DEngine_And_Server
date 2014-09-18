@@ -45,6 +45,18 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ClientCon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TalentTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -68,6 +80,18 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ClientCon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TalentTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="cube.png">
@@ -77,6 +101,24 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="wood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="actionBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="template.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="templateAdvanced.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="treeTemplate.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

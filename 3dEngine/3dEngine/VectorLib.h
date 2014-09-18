@@ -1,6 +1,8 @@
 //vector Library
 #pragma once
 #include <map>
+#include <string>
+
 
 class vector2
 {
@@ -28,6 +30,8 @@ public:
 	vector2 linearInterp(float alpha,vector2 change);
 	float eulerAngle(vector2 change);
 
+	std::string toString();
+
 
 	float x,y;
 };
@@ -43,6 +47,7 @@ public:
 	void operator += (float change);
 	void operator *= (float change);
 	void operator << (vector3 change);
+	void operator << (std::string change);
 	vector3 operator - (vector3 change);
 	vector3 operator + (vector3 change);
 	vector3 operator - (float change);
@@ -62,6 +67,7 @@ public:
 	float eulerAngle(vector3 change);
 	float getPart(int choice);
 
+	std::string toString();
 
 	float x,y,z;
 };

@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#define _WINSOCKAPI_    // stops windows.h including winsock.h
 #include <windows.h>
 #include "glut.h"
 #include <stdio.h>
@@ -11,9 +12,10 @@
 #include "SOIL.h"
 #include "VectorLib.h"
 #include "GControl.h"
+#include "ClientDlg.h"
 
 GControl gcon;
-
+ClientDlg * m_pClient;
 
 void resize(int width, int height)
 {
@@ -105,24 +107,24 @@ void keyCommands()
 			}*/
 			switch (element.first)
 			{
-			case '8': case 'w':
+			case 'w':
 				gcon.player.speed.x = gcon.player.lx * modifier;
 				gcon.player.speed.z = gcon.player.lz * modifier;
 				break;
-			case '2': case 's':
+			case 's':
 				gcon.player.speed.x = -(gcon.player.lx * modifier);
 				gcon.player.speed.z = -(gcon.player.lz * modifier);
 				break;
-			case '4': case 'a':
+			case 'a':
 				gcon.player.speed.x = (gcon.player.lz) * modifier;
 				gcon.player.speed.z = -(gcon.player.lx) * modifier;
 				break;
-			case '6': case 'd':
+			case 'd':
 				gcon.player.speed.x = -(gcon.player.lz) * modifier;
 				gcon.player.speed.z = (gcon.player.lx) * modifier;
 				break;
 
-			case 'q': case 'Q':
+			case 'Q':
 				break;
 			}
 		}
@@ -130,7 +132,7 @@ void keyCommands()
 }
 void update()
 {
-	gcon.update();
+	gcon.update(m_pClient);
 	//gcon.player.update(true);
 	//std::cout << gcon.player.position.x << "," << gcon.player.position.y << "," << gcon.player.position.z;
 }
@@ -235,6 +237,10 @@ void init()
 
 int main(int argc, char** argv)
 {
+	//ClientDlg cld = ClientDlg();
+	m_pClient = new ClientDlg();// = new ClientCon();// = new ClientCon(void);
+	m_pClient->m_pClient = new ClientCon();
+	m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testU");
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(gcon.screen.x, gcon.screen.y);
