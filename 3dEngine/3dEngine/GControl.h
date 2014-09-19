@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "ClientDlg.h"
 #include <vector>
+#include "Bullet.h"
 
 class GControl
 {
@@ -23,6 +24,8 @@ public:
 	Cube floor;
 	Cube test;
 	std::vector<Cube> cubes = std::vector<Cube>(3);
+	std::vector<Bullet> bullets = std::vector<Bullet>(0);
+	Bullet masterBullet;
 	int updateTimer = 0;
 	string username;// = char[] {'t', 'e', 's', 't', 'U'};
 
@@ -41,5 +44,6 @@ public:
 	void draw();
 	void update(ClientDlg * dlg);
 	void init();
+	void fireBullet(vector3 & playerPos, float angle, float lx, float ly, float lz);
 };
 

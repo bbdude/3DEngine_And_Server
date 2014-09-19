@@ -16,7 +16,7 @@ UINT ClientDlg::ThreadFunc()
 
 	//text,port,username
 	//m_pClient = new ClientCon();
-	m_pClient->StartConnect("text", 85, "testU");
+	m_pClient->StartConnect("text", 85, "testI");
 	return 0;
 }
 

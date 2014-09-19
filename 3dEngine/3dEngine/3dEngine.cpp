@@ -63,6 +63,9 @@ void keyboardUp(unsigned char key, int x, int y)
 	case 27:
 		exit(0);
 		break;
+	case 'q': case 'Q':
+		gcon.fireBullet(gcon.player.position, 0, gcon.player.lx, gcon.player.ly, gcon.player.lz);
+		break;
 	case '/':
 		gcon.player.position.x = 0;
 		gcon.player.position.z = 0;
@@ -240,9 +243,10 @@ int main(int argc, char** argv)
 	//ClientDlg cld = ClientDlg();
 	m_pClient = new ClientDlg();// = new ClientCon();// = new ClientCon(void);
 	m_pClient->m_pClient = new ClientCon();
-	//m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testU");
-	m_pClient->m_pClient->StartConnect("10.15.20.143", 85, "testU");
-	gcon.username = "testU";// = char[]{ 't', 'e', 's', 't', 'U' };
+	//m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testI");
+	m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testI");
+	gcon.username = "testI";
+	//gcon.// = char[]{ 't', 'e', 's', 't', 'U' };
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(gcon.screen.x, gcon.screen.y);

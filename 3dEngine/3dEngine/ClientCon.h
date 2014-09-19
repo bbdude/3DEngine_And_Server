@@ -26,7 +26,7 @@ public:
 	WSADATA wsa;
 	SOCKET s;
 	ClientDlg *m_pClient;
-	string m_pUser = "testU";
+	string m_pUser = "testI";
 	bool failure = false;
 
 };

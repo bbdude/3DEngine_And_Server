@@ -9,6 +9,8 @@ void GControl::draw()
 	//tree.draw();
 	for (auto & element : cubes)
 		element.draw();
+	for (auto & element : bullets)
+		element.draw();
 	test.draw();
 	floor.draw();
 	//abar.draw();
@@ -24,7 +26,7 @@ void GControl::update(ClientDlg * dlg)
 		if (!dlg->m_pClient->failure){
 			string transferPos = "";
 			std::ostringstream buff;
-			buff << player.position.x << "," << player.position.z;
+			buff << player.position.x << "," << player.position.y << "," << player.position.z << ",";
 			transferPos += buff.str();
 			dlg->m_pClient->SendData(transferPos);
 		}
@@ -38,7 +40,7 @@ void GControl::update(ClientDlg * dlg)
 			//if ((recv_size = recv(dlg->m_pClient->s, server_reply, 2000, 0)) != SOCKET_ERROR)
 			if ((recv_size = recv(dlg->m_pClient->s, server_reply, 2000, 0)) != 0)
 			{
-				
+
 				//puts("Reply received\n");
 				string retMsg = "";
 				bool read = false;
@@ -50,7 +52,7 @@ void GControl::update(ClientDlg * dlg)
 				if (read && server_reply[7] != ' ')
 				{
 					server_reply[recv_size] = '\0';
-					puts(server_reply); 
+					puts(server_reply);
 					for (int i = 7; i <= 20; i++)
 					{
 						if (server_reply[i] == ' ' || server_reply[i] == '\n')
@@ -59,9 +61,9 @@ void GControl::update(ClientDlg * dlg)
 					}
 					/*for (auto element : server_reply)
 					{
-						if (element == ' ')
-							break;
-						retMsg += element;
+					if (element == ' ')
+					break;
+					retMsg += element;
 					}*/
 				}
 				if (retMsg != "")
@@ -93,14 +95,14 @@ void GControl::update(ClientDlg * dlg)
 					/*std::vector<float> v;
 					std::istringstream iss(retMsg);
 					std::copy(std::istream_iterator<float>(iss),
-						std::istream_iterator<float>(),
-						std::back_inserter(v));
+					std::istream_iterator<float>(),
+					std::back_inserter(v));
 					std::copy(v.begin(), v.end(),
-						std::ostream_iterator<float>(std::cout, ","));*/
+					std::ostream_iterator<float>(std::cout, ","));*/
 					int bob = 5;
 				}
-				
-				
+
+
 				//Add a NULL terminating character to make it a proper string before printing
 				/*server_reply[recv_size] = '\0';
 				puts(server_reply);
@@ -117,25 +119,25 @@ void GControl::update(ClientDlg * dlg)
 
 	/*if (player.position.x + player.speed.x >= test.position.x && player.position.x + player.speed.x <= test.position.x + test.size.x)
 	{
-		if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
-		{
-			inbox = true;
-		}
-		if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
-		{
-			inbox = true;
-		}
+	if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
+	{
+	inbox = true;
+	}
+	if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
+	{
+	inbox = true;
+	}
 	}
 	if (player.position.x + player.size.x + player.speed.x >= test.position.x && player.position.x + player.size.x + player.speed.x <= test.position.x + test.size.x)
 	{
-		if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
-		{
-			inbox = true;
-		}
-		if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
-		{
-			inbox = true;
-		}
+	if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
+	{
+	inbox = true;
+	}
+	if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
+	{
+	inbox = true;
+	}
 	}*/
 
 	for (auto & element : cubes){
@@ -155,132 +157,177 @@ void GControl::update(ClientDlg * dlg)
 			player.speed.z = 0;
 		}
 
+		for (auto & elemb : bullets)
+		{
+			if (element.testColl(elemb.position, vector3(elemb.size.x, elemb.size.y, elemb.size.x)))
+			{
+				elemb.killOff = true;
+			}
+		}
+
 	}
 	/*switch (keyState.)
 	{
 	default:
-		break;
+	break;
 	}*/
 	/*if (keyState['1'])
 	{
-		 //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon1");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
+	//icons;
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon1");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
 
-			abar.icons["icon1"].run();
-			//keyState['1'] = false;
-		}
+	abar.icons["icon1"].run();
+	//keyState['1'] = false;
+	}
 	}
 	else if (keyState['2'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon2");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon2"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon2");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon2"].run();
+	}
 	}
 	else if (keyState['3'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon3");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon3"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon3");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon3"].run();
+	}
 	}
 	else if (keyState['4'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon4");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon4"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon4");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon4"].run();
+	}
 	}
 	else if (keyState['5'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon5");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon5"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon5");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon5"].run();
+	}
 	}
 	else if (keyState['6'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon6");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon6"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon6");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon6"].run();
+	}
 	}
 	else if (keyState['7'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon7");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon7"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon7");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon7"].run();
+	}
 	}
 	else if (keyState['8'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon8");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon8"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon8");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon8"].run();
+	}
 	}
 	else if (keyState['9'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon9");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon9"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon9");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon9"].run();
+	}
 	}
 	else if (keyState['0'])
 	{ //icons;
-		std::map<std::string, Icon>::iterator it = abar.icons.find("icon0");
-		Icon ico;
-		if (it != abar.icons.end())
-		{
-			//element found;
-			ico = it->second;
-			abar.icons["icon0"].run();
-		}
+	std::map<std::string, Icon>::iterator it = abar.icons.find("icon0");
+	Icon ico;
+	if (it != abar.icons.end())
+	{
+	//element found;
+	ico = it->second;
+	abar.icons["icon0"].run();
+	}
 	}*/
 
 	//abar.update();
 	test.update(0, vector3(0, 0, 0));
 	for (auto & element : cubes)
 		element.update(0, player.position);
+	auto i = std::begin(bullets);
+
+	while (i != std::end(bullets)) {
+		// do some stuff
+		if (i->killOff)
+			i = bullets.erase(i);
+		else
+		{
+			i->update(0, player.position);
+			i->updateSpeed();
+			++i;
+		}
+	}
+	for (auto & element : bullets)
+	{
+	}
 	floor.update(0, vector3(0, 0, 0));
 	player.update(true);
+
+}
+void GControl::fireBullet(vector3 & playerPos, float angle, float lx, float ly, float lz)
+{
+	//if (whatBullet < 10)
+	//{
+		//whatBullet++;
+		Bullet newBullet(masterBullet);
+		newBullet.angle = angle;
+		newBullet.position = playerPos;
+		newBullet.size.x = 3;
+		newBullet.size.y = 2;
+		newBullet.speed.x = lx * 0.5f;
+		newBullet.speed.z = lz * 0.5f;
+		newBullet.speed.y = ly * 0.5f;
+		newBullet.position.y = playerPos.y;
+		newBullet.color.fill(0.5f, 0.5f, 0.5f);
+		bullets.push_back(newBullet);
+	//}
+	//else
+	//	reloadGun = true;
 }
 void GControl::init()
 {
@@ -295,17 +342,23 @@ void GControl::init()
 		size << vector2(25, 50);
 		test.fill(position, size, color, 0);
 		test.init("wood.png");*/
+	position.fill(0, 5, -0);
 	size << vector2(25, 50);
 	test.fill(position, size, color, 0);
-	test.init("wood.png");
+	test.init("person.png");
 	int offset = 0;
 	for (auto & element : cubes){
-		position.fill(100 - offset, -0, -100);
+		position.fill(100 - offset, 5, -100);
 		element.fill(position, size, color, 0);
 		element.init("wood.png");
 		offset += size.x;
 	}
 	player.size.x = 5;
+
+	masterBullet.setColor(1, 0, 0);
+
+	masterBullet.loadGLTextures("icon2.png");// .filename = "bullet.png";
+	masterBullet.init();
 	//abar.loadGLTextures("actionBar.png");
 	//abar.loadGLTexturesIco("icon1.png", "icon1");
 	//abar.loadGLTexturesIco("icon2.png", "icon2");

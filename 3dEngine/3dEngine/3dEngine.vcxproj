@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="ActionBar.h" />
     <ClInclude Include="BasicShape.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="ClientCon.h" />
     <ClInclude Include="ClientDlg.h" />
     <ClInclude Include="Cube.h" />
@@ -97,6 +98,7 @@
     <ClCompile Include="3dEngine.cpp" />
     <ClCompile Include="ActionBar.cpp" />
     <ClCompile Include="BasicShape.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ClientCon.cpp" />
     <ClCompile Include="ClientDlg.cpp" />
     <ClCompile Include="Cube.cpp" />
@@ -110,11 +112,13 @@
     <ClCompile Include="VectorLib.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Debug\person.png" />
     <Image Include="actionBar.png" />
     <Image Include="cube.png" />
     <Image Include="floor.png" />
     <Image Include="icon1.png" />
     <Image Include="icon2.png" />
+    <Image Include="person.png" />
     <Image Include="template.png" />
     <Image Include="templateAdvanced.png" />
     <Image Include="treeTemplate.png" />

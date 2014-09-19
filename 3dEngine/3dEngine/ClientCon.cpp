@@ -37,7 +37,7 @@ void ClientCon::StartConnect(string sAddress, int iPort, string sUsername)
 	struct sockaddr_in server;
 	char *message, server_reply[2000];
 	int recv_size;
-	m_pUser = "testU";
+	m_pUser = "testI";
 
 	int bob = 5;
 

@@ -57,6 +57,9 @@
     <ClInclude Include="TalentTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -92,6 +95,9 @@
     <ClCompile Include="TalentTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="cube.png">
@@ -119,6 +125,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="treeTemplate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\person.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="person.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
