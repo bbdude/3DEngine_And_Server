@@ -11,37 +11,68 @@ void GControl::draw()
 		element.draw();
 	for (auto & element : bullets)
 		element.draw();
-	test.draw();
+	//test.draw();
 	floor.draw();
+	//testHead.draw();
+	//testBody.draw();
+	if (testEntity.health > 0)
+		testEntity.draw();
+
+
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	glOrtho(0.0, screen.x, screen.y, 0.0, -1.0, 10.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glDisable(GL_CULL_FACE);
+
+	glClear(GL_DEPTH_BUFFER_BIT);
+
+	glBegin(GL_QUADS);
+	if (player.invTimer == 0)
+		glColor3f(1.0f, 0.0f, 0.0);
+	else
+		glColor3f(1.0f, 0.0f, 1.0);
+
+	glVertex2f((screen.x / 2 - (screen.x / 6)) - 2.6*(100 - player.health), screen.y - (screen.y / 35));
+	glVertex2f((screen.x / 2 - (screen.x / 6)) - 2.6*(100 - player.health), screen.y - (screen.y / 15));
+	glVertex2f((screen.x / 35), screen.y - (screen.y / 15));
+	glVertex2f((screen.x / 35), screen.y - (screen.y / 35));
+	glEnd();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
 	//abar.draw();
 }
 void GControl::update(ClientDlg * dlg)
 {
 	//dlg->retrieveDlg();
 	updateTimer++;
-	if (updateTimer == 99)
+	if (updateTimer == 49)
 	{
-		//if (!dlg->m_pClient->failure)
-		//	dlg->m_pClient->SendData(/*"," + */player.position.toString() + ",");
 		if (!dlg->m_pClient->failure){
 			string transferPos = "";
 			std::ostringstream buff;
-			buff << player.position.x << "," << player.position.y << "," << player.position.z << ",";
+			int hitop = 0;
+			if (hitOP)
+				hitop = 1;
+			buff << player.position.x << "," << player.position.z << "," << hitop << ",";
+			hitOP = false;
 			transferPos += buff.str();
 			dlg->m_pClient->SendData(transferPos);
 		}
 	}
-	else if (updateTimer >= 100)
+	else if (updateTimer >= 50)
 	{
 		if (!dlg->m_pClient->failure)
 		{
 			char server_reply[2000];
 			int recv_size = 0;
-			//if ((recv_size = recv(dlg->m_pClient->s, server_reply, 2000, 0)) != SOCKET_ERROR)
 			if ((recv_size = recv(dlg->m_pClient->s, server_reply, 2000, 0)) != 0)
 			{
 
-				//puts("Reply received\n");
 				string retMsg = "";
 				bool read = false;
 				for (int i = 0; i < 5; i++)
@@ -59,12 +90,6 @@ void GControl::update(ClientDlg * dlg)
 							break;
 						retMsg += server_reply[i];
 					}
-					/*for (auto element : server_reply)
-					{
-					if (element == ' ')
-					break;
-					retMsg += element;
-					}*/
 				}
 				if (retMsg != "")
 				{
@@ -77,13 +102,17 @@ void GControl::update(ClientDlg * dlg)
 						switch (pas)
 						{
 						case 0:
-							test.position.x = stof(token);
+							//test.position.x = stof(token);
+							testEntity.position.x = stof(token);
 							break;
 						case 1:
-							test.position.y = stof(token);
+							//test.position.z = stof(token);
+							testEntity.position.z = stof(token);
 							break;
 						case 2:
-							test.position.z = stof(token);
+							//test.position.z = stof(token);
+							if (stof(token) == 1)
+								player.health -= 20;
 							break;
 						default:
 							break;
@@ -92,53 +121,14 @@ void GControl::update(ClientDlg * dlg)
 						pas++;
 						retMsg.erase(0, pos + delimiter.length());
 					}
-					/*std::vector<float> v;
-					std::istringstream iss(retMsg);
-					std::copy(std::istream_iterator<float>(iss),
-					std::istream_iterator<float>(),
-					std::back_inserter(v));
-					std::copy(v.begin(), v.end(),
-					std::ostream_iterator<float>(std::cout, ","));*/
 					int bob = 5;
 				}
-
-
-				//Add a NULL terminating character to make it a proper string before printing
-				/*server_reply[recv_size] = '\0';
-				puts(server_reply);
-				player.position << string(server_reply);
-				string sTempMsg = "\n" + string(server_reply);
-				dlg->retrieveDlg(sTempMsg);*/
-				//return;
 
 			}
 		}
 		updateTimer = 0;
 	}
-	//bool inbox = false;
-
-	/*if (player.position.x + player.speed.x >= test.position.x && player.position.x + player.speed.x <= test.position.x + test.size.x)
-	{
-	if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
-	{
-	inbox = true;
-	}
-	if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
-	{
-	inbox = true;
-	}
-	}
-	if (player.position.x + player.size.x + player.speed.x >= test.position.x && player.position.x + player.size.x + player.speed.x <= test.position.x + test.size.x)
-	{
-	if (player.position.y + player.speed.y >= test.position.y && player.position.y + player.speed.y <= test.position.y + test.size.y)
-	{
-	inbox = true;
-	}
-	if (player.position.y + player.size.y + player.speed.y >= test.position.y && player.position.y + player.size.y + player.speed.y <= test.position.y + test.size.y)
-	{
-	inbox = true;
-	}
-	}*/
+	
 
 	for (auto & element : cubes){
 		vector3 newPos = vector3(player.position);
@@ -149,6 +139,13 @@ void GControl::update(ClientDlg * dlg)
 			newPos.x -= player.speed.x;
 			player.speed.x = 0;
 		}
+		else if (testEntity.testColl(newPos, player.size))
+		{
+			newPos.x -= player.speed.x;
+			player.speed.x = 0;
+		}
+
+
 		newPos.x -= player.speed.x;
 		newPos.z += player.speed.z;
 		if (element.testColl(newPos, player.size))
@@ -156,12 +153,26 @@ void GControl::update(ClientDlg * dlg)
 			newPos.z -= player.speed.z;
 			player.speed.z = 0;
 		}
+		//newPos.z -= 50;
+		//player.size = vector3(4,0, 4);
+		/*if (testEntity.testColl(newPos, player.size))
+		{
+			newPos.z -= player.speed.z;
+			player.speed.z = 0;
+		}*/
+
 
 		for (auto & elemb : bullets)
 		{
 			if (element.testColl(elemb.position, vector3(elemb.size.x, elemb.size.y, elemb.size.x)))
 			{
 				elemb.killOff = true;
+			}
+			if (testEntity.testColl(elemb.position, vector3(elemb.size.x, elemb.size.y, elemb.size.x)))
+			{
+				testEntity.health -= 5;
+				elemb.killOff = true;
+				std::cout << "HIT";// +testEntity.health;
 			}
 		}
 
@@ -286,7 +297,9 @@ void GControl::update(ClientDlg * dlg)
 	}*/
 
 	//abar.update();
-	test.update(0, vector3(0, 0, 0));
+	//test.update(0, vector3(0, 0, 0));
+	//if (testEntity.health 
+	testEntity.update();
 	for (auto & element : cubes)
 		element.update(0, player.position);
 	auto i = std::begin(bullets);
@@ -299,6 +312,9 @@ void GControl::update(ClientDlg * dlg)
 		{
 			i->update(0, player.position);
 			i->updateSpeed();
+			//if (test.testColl(i->position, vector3(i->size.x, i->size.y, i->size.x))){
+			//	i->killOff = true; hitOP = true;
+			//}
 			++i;
 		}
 	}
@@ -332,6 +348,9 @@ void GControl::fireBullet(vector3 & playerPos, float angle, float lx, float ly, 
 void GControl::init()
 {
 	//test.LoadGLTextures(1);
+	//testHead.init("head");
+	//testBody.init("body");
+	testEntity.init();
 	curr = GAME;
 	vector3 position(500, -20, -500);
 	vector3 color(0.4, 0.3, 0);
@@ -344,8 +363,8 @@ void GControl::init()
 		test.init("wood.png");*/
 	position.fill(0, 5, -0);
 	size << vector2(25, 50);
-	test.fill(position, size, color, 0);
-	test.init("person.png");
+	//test.fill(position, size, color, 0);
+	//test.init("person.png");
 	int offset = 0;
 	for (auto & element : cubes){
 		position.fill(100 - offset, 5, -100);

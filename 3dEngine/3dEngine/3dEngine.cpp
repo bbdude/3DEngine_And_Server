@@ -244,7 +244,7 @@ int main(int argc, char** argv)
 	m_pClient = new ClientDlg();// = new ClientCon();// = new ClientCon(void);
 	m_pClient->m_pClient = new ClientCon();
 	//m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testI");
-	m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testI");
+	m_pClient->m_pClient->StartConnect("10.15.20.143", 85, "testI");
 	gcon.username = "testI";
 	//gcon.// = char[]{ 't', 'e', 's', 't', 'U' };
 	glutInit(&argc, argv);

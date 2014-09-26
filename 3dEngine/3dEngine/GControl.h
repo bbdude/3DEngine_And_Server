@@ -15,6 +15,8 @@
 #include "ClientDlg.h"
 #include <vector>
 #include "Bullet.h"
+#include "Model.h"
+#include "Entity.h"
 
 class GControl
 {
@@ -22,11 +24,16 @@ public:
 	//Var
 	Player player;
 	Cube floor;
-	Cube test;
+	//Cube test;
+	Entity testEntity;
+	//Model testHead;
+	//Model testBody;
 	std::vector<Cube> cubes = std::vector<Cube>(3);
 	std::vector<Bullet> bullets = std::vector<Bullet>(0);
 	Bullet masterBullet;
 	int updateTimer = 0;
+	bool hitOP = false;
+	bool hitME = false;
 	string username;// = char[] {'t', 'e', 's', 't', 'U'};
 
 	vector2 mouse = vector2(0, 0);
