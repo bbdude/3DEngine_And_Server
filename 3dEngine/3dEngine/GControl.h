@@ -25,6 +25,8 @@ class GControl
 {
 public:
 	//Var
+	TalentTree tree;
+	
 	Player player;
 	Cube floor;
 	//Cube test;
