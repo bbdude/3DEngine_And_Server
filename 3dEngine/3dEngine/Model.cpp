@@ -10,6 +10,51 @@ Model::Model()
 Model::~Model()
 {
 }
+char *textFileRead(char *fn) {
+
+
+	FILE *fp;
+	char *content = NULL;
+
+	int count = 0;
+
+	if (fn != NULL) {
+		fp = fopen(fn, "rt");
+
+		if (fp != NULL) {
+
+			fseek(fp, 0, SEEK_END);
+			count = ftell(fp);
+			rewind(fp);
+
+			if (count > 0) {
+				content = (char *)malloc(sizeof(char) * (count + 1));
+				count = fread(content, sizeof(char), count, fp);
+				content[count] = '\0';
+			}
+			fclose(fp);
+		}
+	}
+	return content;
+}
+
+int textFileWrite(char *fn, char *s) {
+
+	FILE *fp;
+	int status = 0;
+
+	if (fn != NULL) {
+		fp = fopen(fn, "w");
+
+		if (fp != NULL) {
+
+			if (fwrite(s, sizeof(char), strlen(s), fp) == strlen(s))
+				status = 1;
+			fclose(fp);
+		}
+	}
+	return(status);
+}
 
 void Model::loadOBJ(const char * path, std::vector < vector3 > & out_vertices, std::vector < vector2 > & out_uvs, std::vector < vector3 > & out_normals)
 {
@@ -74,6 +119,8 @@ void Model::loadOBJ(const char * path, std::vector < vector3 > & out_vertices, s
 		//vertex.normalise();
 		out_uvs.push_back(uv);
 	}
+	shader.init("shader.vert", "shader.frag");
+	//setShaders();
 }
 void Model::loadGLTextures(std::string file)
 {
@@ -106,7 +153,7 @@ void Model::init(std::string part)
 }
 void Model::draw()
 {
-	//glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vector3), &vertices[0], GL_STATIC_DRAW);
+	shader.bind();
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glBegin(GL_TRIANGLES);
@@ -114,23 +161,45 @@ void Model::draw()
 	glLoadIdentity();
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glColor3f(1, 1, 1);
-	//vector3 color = vector3(0, 1, 0);
 	for (int l_index = 0; l_index < vertices.size(); l_index++)
 	{
-		//glRotatef(angle,1,0,0);
-		//glClearColor(0.0, 1.0, 0.0, 0.5);
-		//glColor3f(color.x, color.y, color.z);
-		//color.x += 0.001f;
-		//color.y -= 0.001f;
-
-		//glColor3f((float)(l_index/100), 0, 0);
-		//if (angle != 0)
-//			glRotatef(-angle * 100, 0.0, 0.0, 1.0);
 		glTexCoord2f(uvs[l_index].x, uvs[l_index].y);
 		glVertex3f(vertices[l_index].x * 5, vertices[l_index].y * 5, vertices[l_index].z * 5);
-		//glVertex3f(vertices[l_index].x * 5, vertices[l_index].y * 5, vertices[l_index].z * 5);
-		//glVertex3f(vertices[l_index].x * 5, vertices[l_index].y * 5, vertices[l_index].z * 5);
 	}
 	glDisable(GL_TEXTURE_2D);
 	glEnd();
+	shader.unbind();
 }
+/*void Model::setShaders() {
+
+	char *vs = NULL, *fs = NULL, *fs2 = NULL;
+
+	v = glCreateShader(GL_VERTEX_SHADER);
+	f = glCreateShader(GL_FRAGMENT_SHADER);
+	f2 = glCreateShader(GL_FRAGMENT_SHADER);
+
+
+	vs = textFileRead("toon.vert");
+	fs = textFileRead("toon.frag");
+	fs2 = textFileRead("toon2.frag");
+
+	const char * ff = fs;
+	const char * ff2 = fs2;
+	const char * vv = vs;
+
+	glShaderSource(v, 1, &vv, NULL);
+	glShaderSource(f, 1, &ff, NULL);
+	glShaderSource(f2, 1, &ff2, NULL);
+
+	free(vs); free(fs);
+
+	glCompileShader(v);
+	glCompileShader(f);
+	glCompileShader(f2);
+
+	p = glCreateProgram();
+
+	glLinkProgram(p);
+	glUseProgram(p);
+}*/
+

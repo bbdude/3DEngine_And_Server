@@ -2,13 +2,15 @@
 //
 
 #include "stdafx.h"
+//#define GLEW_STATIC
+#include <gl\glew.h>
 #include <iostream>
 #define _WINSOCKAPI_    // stops windows.h including winsock.h
 #include <windows.h>
 #include "glut.h"
 #include <stdio.h>
-#include <gl/GL.h>
-#include <gl\GLU.h>
+//#include <gl/GL.h>
+//#include <gl\GLU.h>
 #include "SOIL.h"
 #include "VectorLib.h"
 #include "GControl.h"
@@ -241,6 +243,9 @@ void init()
 int main(int argc, char** argv)
 {
 	//ClientDlg cld = ClientDlg();
+	//glewExperimental = TRUE;
+	glutInitDisplayMode(GLUT_RGB);
+	
 	m_pClient = new ClientDlg();// = new ClientCon();// = new ClientCon(void);
 	m_pClient->m_pClient = new ClientCon();
 	//m_pClient->m_pClient->StartConnect("192.168.0.4", 85, "testI");
@@ -252,6 +257,19 @@ int main(int argc, char** argv)
 	glutInitWindowSize(gcon.screen.x, gcon.screen.y);
 	glutInitWindowPosition(50, 50);
 	glutCreateWindow("Darths R6 Demake, Fo Shizzle");
+
+	GLenum err = glewInit();
+	if (err != GLEW_OK)
+	{
+		std::cout << glewGetErrorString(err) << std::endl;
+		//Problem: glewInit failed, something is seriously wrong.
+		//cout << "glewInit failed, aborting." << endl;
+	}
+	if (glewIsSupported("GL_VERSION_2_0"))
+		printf("Ready for OpenGL 2.0\n");
+	else {
+		printf("OpenGL 2.0 not supported\n");
+	}
 
 	glutDisplayFunc(display);
 	glutIdleFunc(display);

@@ -66,6 +66,9 @@
     <ClInclude Include="Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -108,6 +111,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -154,10 +160,27 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="glut32.dll" />
+    <None Include="toon.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="toon2.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="toon.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="glew32d.dll" />
+    <None Include="shader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Library Include="glut32.lib" />
     <Library Include="SOIL.lib" />
+    <Library Include="glew32d.lib" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="box_realistic.obj">

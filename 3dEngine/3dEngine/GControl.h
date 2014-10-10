@@ -1,4 +1,6 @@
 #pragma once
+//#define GLEW_STATIC
+#include <gl\glew.h>
 #include <iostream>
 #define _WINSOCKAPI_    // stops windows.h including winsock.h
 #include <windows.h>
@@ -17,6 +19,7 @@
 #include "Bullet.h"
 #include "Model.h"
 #include "Entity.h"
+#include "TalentTree.h"
 
 class GControl
 {

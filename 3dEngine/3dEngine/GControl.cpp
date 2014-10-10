@@ -6,6 +6,7 @@ GControl::GControl(){}
 GControl::~GControl(){}
 void GControl::draw()
 {
+
 	//tree.draw();
 	for (auto & element : cubes)
 		element.draw();
