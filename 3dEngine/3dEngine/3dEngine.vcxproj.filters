@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;obj;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Tiny">
+      <UniqueIdentifier>{a4c6986d-5cc9-4e21-aa43-2dfb7fbad66c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tiny">
+      <UniqueIdentifier>{5d11e172-002c-4824-bf98-b3b71a5394c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -69,6 +75,12 @@
     <ClInclude Include="shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tinyxml.h">
+      <Filter>Header Files\Tiny</Filter>
+    </ClInclude>
+    <ClInclude Include="tinystr.h">
+      <Filter>Header Files\Tiny</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -115,6 +127,18 @@
     </ClCompile>
     <ClCompile Include="shader.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinystr.cpp">
+      <Filter>Source Files\Tiny</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml.cpp">
+      <Filter>Source Files\Tiny</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlerror.cpp">
+      <Filter>Source Files\Tiny</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlparser.cpp">
+      <Filter>Source Files\Tiny</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -176,11 +200,16 @@
     <None Include="shader.vert">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="tinyxml2.dll" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="glut32.lib" />
     <Library Include="SOIL.lib" />
     <Library Include="glew32d.lib" />
+    <Library Include="tinyxml2.lib" />
+    <Library Include="tinyxml.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
     <Object Include="box_realistic.obj">
@@ -203,5 +232,13 @@
     <Resource Include="cube.obj">
       <Filter>Resource Files</Filter>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="ttree.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="LevelData.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

@@ -159,8 +159,8 @@ void Model::draw()
 	glBegin(GL_TRIANGLES);
 	glPushMatrix();
 	glLoadIdentity();
-	glClearColor(0.0, 0.0, 0.0, 0.0);
-	glColor3f(1, 1, 1);
+	//glClearColor(0.0, 0.0, 0.0, 0.0);
+	//glColor3f(1, 1, 1);
 	for (int l_index = 0; l_index < vertices.size(); l_index++)
 	{
 		glTexCoord2f(uvs[l_index].x, uvs[l_index].y);
@@ -168,6 +168,7 @@ void Model::draw()
 	}
 	glDisable(GL_TEXTURE_2D);
 	glEnd();
+	glPopMatrix();
 	shader.unbind();
 }
 /*void Model::setShaders() {

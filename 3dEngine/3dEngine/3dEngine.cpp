@@ -81,6 +81,9 @@ void keyboardUp(unsigned char key, int x, int y)
 	case 'p': case 'P':
 		glutFullScreen();
 		break;
+	case 'n': case 'N':
+		gcon.showTree = !gcon.showTree;
+		break;
 	case 'f': case 'F':
 		if (gcon.player.filling == 0)
 		{

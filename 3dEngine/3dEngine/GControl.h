@@ -20,12 +20,14 @@
 #include "Model.h"
 #include "Entity.h"
 #include "TalentTree.h"
+#include "ActionBar.h"
 
 class GControl
 {
 public:
 	//Var
-	TalentTree tree;
+	ActionBar abar = ActionBar();
+	TalentTree tree = TalentTree();
 	
 	Player player;
 	Cube floor;
@@ -39,6 +41,7 @@ public:
 	int updateTimer = 0;
 	bool hitOP = false;
 	bool hitME = false;
+	bool showTree = false;
 	string username;// = char[] {'t', 'e', 's', 't', 'U'};
 
 	vector2 mouse = vector2(0, 0);
@@ -54,6 +57,7 @@ public:
 	GControl();
 	~GControl();
 	void draw();
+	void drawGui();
 	void update(ClientDlg * dlg);
 	void init();
 	void fireBullet(vector3 & playerPos, float angle, float lx, float ly, float lz);

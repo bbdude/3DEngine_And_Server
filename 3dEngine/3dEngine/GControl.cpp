@@ -6,7 +6,6 @@ GControl::GControl(){}
 GControl::~GControl(){}
 void GControl::draw()
 {
-
 	//tree.draw();
 	for (auto & element : cubes)
 		element.draw();
@@ -19,8 +18,15 @@ void GControl::draw()
 	if (testEntity.health > 0)
 		testEntity.draw();
 
+	drawGui();
+	if (showTree)
+		tree.draw();
+	abar.draw();
 
-
+	//abar.draw();
+}
+void GControl::drawGui()
+{
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 	glLoadIdentity();
@@ -30,7 +36,7 @@ void GControl::draw()
 	glDisable(GL_CULL_FACE);
 
 	glClear(GL_DEPTH_BUFFER_BIT);
-
+	//glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glBegin(GL_QUADS);
 	if (player.invTimer == 0)
 		glColor3f(1.0f, 0.0f, 0.0);
@@ -45,7 +51,6 @@ void GControl::draw()
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
-	//abar.draw();
 }
 void GControl::update(ClientDlg * dlg)
 {
@@ -183,121 +188,122 @@ void GControl::update(ClientDlg * dlg)
 	default:
 	break;
 	}*/
-	/*if (keyState['1'])
+	
+	if (keyState['1'])
 	{
-	//icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon1");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
+		//icons;
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon1");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
 
-	abar.icons["icon1"].run();
-	//keyState['1'] = false;
-	}
+			abar.icons["icon1"].run();
+			//keyState['1'] = false;
+		}
 	}
 	else if (keyState['2'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon2");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon2"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon2");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon2"].run();
+		}
 	}
 	else if (keyState['3'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon3");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon3"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon3");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon3"].run();
+		}
 	}
 	else if (keyState['4'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon4");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon4"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon4");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon4"].run();
+		}
 	}
 	else if (keyState['5'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon5");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon5"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon5");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon5"].run();
+		}
 	}
 	else if (keyState['6'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon6");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon6"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon6");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon6"].run();
+		}
 	}
 	else if (keyState['7'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon7");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon7"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon7");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon7"].run();
+		}
 	}
 	else if (keyState['8'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon8");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon8"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon8");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon8"].run();
+		}
 	}
 	else if (keyState['9'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon9");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon9"].run();
-	}
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon9");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon9"].run();
+		}
 	}
 	else if (keyState['0'])
 	{ //icons;
-	std::map<std::string, Icon>::iterator it = abar.icons.find("icon0");
-	Icon ico;
-	if (it != abar.icons.end())
-	{
-	//element found;
-	ico = it->second;
-	abar.icons["icon0"].run();
+		std::map<std::string, Icon>::iterator it = abar.icons.find("icon0");
+		Icon ico;
+		if (it != abar.icons.end())
+		{
+			//element found;
+			ico = it->second;
+			abar.icons["icon0"].run();
+		}
 	}
-	}*/
-
-	//abar.update();
+	
+	abar.update();
 	//test.update(0, vector3(0, 0, 0));
 	//if (testEntity.health 
 	testEntity.update();
@@ -319,9 +325,9 @@ void GControl::update(ClientDlg * dlg)
 			++i;
 		}
 	}
-	for (auto & element : bullets)
+	/*for (auto & element : bullets)
 	{
-	}
+	}*/
 	floor.update(0, vector3(0, 0, 0));
 	player.update(true);
 
@@ -379,10 +385,12 @@ void GControl::init()
 
 	masterBullet.loadGLTextures("icon2.png");// .filename = "bullet.png";
 	masterBullet.init();
-	//abar.loadGLTextures("actionBar.png");
-	//abar.loadGLTexturesIco("icon1.png", "icon1");
-	//abar.loadGLTexturesIco("icon2.png", "icon2");
+	
+	abar.loadGLTextures("actionBar.png");
+	abar.loadGLTexturesIco("icon1.png", "icon1");
+	abar.loadGLTexturesIco("icon2.png", "icon2");
 
-	//tree.loadGLTextures("templateAdvanced.png");
+	tree.loadGLTextures("templateAdvanced.png");
+	tree.loadData();
 
 }

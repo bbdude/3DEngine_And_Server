@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talenttree>
+	<Column>	
+		<SubColumn name="0">
+			<Tile name="Torment" type="InBuff" amount ="0" locked = "true" />
+			<Tile name="Consume" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Transfer" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+		<SubColumn name="1">
+			<Tile name="Blood_Pool" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Horde" type="ProcBuff" amount ="0" locked = "true" />
+			<Tile name="Boil" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Darkness Incarnate" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+		<SubColumn name="2">
+			<Tile name="Cull" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Herald" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Deny" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+	</Column>
+	<Column>
+		<SubColumn name="0">
+			<Tile name="UnVeil" type="InBuff" amount ="0" locked = "true" />
+			<Tile name="Feed" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Share" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+		<SubColumn name="1">
+			<Tile name="Light_Pool" type="Abil" amount ="0" locked = "true" />
+			<Tile name="UnBurden" type="ProcBuff" amount ="0" locked = "true" />
+			<Tile name="Repent" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Forgiveness" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+		<SubColumn name="2">
+			<Tile name="Populate" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Messiah" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Acceptance" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+	</Column>
+	<Column>
+		<SubColumn name="0">
+			<Tile name="Icy_Protection" type="InBuff" amount ="0" locked = "true" />
+			<Tile name="Fire_Bloom" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Shatter" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+		<SubColumn name="1">
+			<Tile name="Quake" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Resistance" type="ProcBuff" amount ="0" locked = "true" />
+			<Tile name="Blink" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Skys_Reach" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+		<SubColumn name="2">
+			<Tile name="Decimate" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Embrace" type="Abil" amount ="0" locked = "true" />
+			<Tile name="Teir" type="Abil" amount ="0" locked = "true" />
+		</SubColumn>
+	</Column>
+</talenttree>
