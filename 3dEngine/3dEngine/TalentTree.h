@@ -25,10 +25,12 @@ struct Talent
 	int pointsM = 1;
 	float procTime = 0;
 	float cdTime = 20;
-	std::string type = "InBuff";
+	std::string type = "";
 	std::string name = "";
 	bool avail = false;
 	GLuint	texture;
+	vector2 position = vector2(0,0);
+	vector2 size = vector2(62, 62);
 	void loadGLTextures();
 	void init();
 };

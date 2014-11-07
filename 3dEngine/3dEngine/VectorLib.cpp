@@ -193,7 +193,17 @@ void vector3::operator << (std::string change)
 	//y = change.y;
 	//z = change.z;
 }
-
+bool vector3::operator>= (vector3 change)
+{
+	if (change.x >= x || change.y >= y || change.z >= z)
+		return false;
+	return true;
+}bool vector3::operator<= (vector3 change)
+{
+	if (change.x <= x || change.y <= y || change.z <= z)
+		return false;
+	return true;
+}
 vector3 vector3::operator - (vector3 change)
 {
 	vector3 temp(x - change.x,y - change.y,z - change.z);
@@ -201,7 +211,12 @@ vector3 vector3::operator - (vector3 change)
 }
 vector3 vector3::operator + (vector3 change)
 {
-	vector3 temp(x + change.x,y + change.y,z + change.z);
+	vector3 temp(x + change.x, y + change.y, z + change.z);
+	return temp;
+}
+vector3 vector3::operator / (vector3 change)
+{
+	vector3 temp(x / change.x, y / change.y, z / change.z);
 	return temp;
 }
 vector3 vector3::operator - (float change)

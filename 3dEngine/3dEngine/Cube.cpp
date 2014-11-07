@@ -111,6 +111,71 @@ void Cube::draw(void)
 	glDisable(GL_TEXTURE_2D);
 	glEnd();
 }
+void Cube::drawC(void)
+{
+	glBegin(GL_QUADS);
+	glPushMatrix();
+	glLoadIdentity();
+	glColor3f(1, 1, 1);
+	//bottom
+	glColor3f(1,0, 0); glVertex3f(position.x, position.y - (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 0); glVertex3f(position.x + size.x, position.y - (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 1); glVertex3f(position.x + size.x, position.y - (size.y / 2), position.z);
+	glColor3f(1,0, 1); glVertex3f(position.x, position.y - (size.y / 2), position.z);
+	glPopMatrix();
+
+
+	glPushMatrix();
+	glLoadIdentity();
+	glColor3f(1, 1, 1);
+	//top
+	glColor3f(1,0, 0); glVertex3f(position.x, position.y + (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 0); glVertex3f(position.x + size.x, position.y + (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 1); glVertex3f(position.x + size.x, position.y + (size.y / 2), position.z);
+	glColor3f(1,0, 1); glVertex3f(position.x, position.y + (size.y / 2), position.z);
+	glPopMatrix();
+
+	glPushMatrix();
+	glLoadIdentity();
+	glColor3f(1, 1, 1);
+	//front
+	glColor3f(1,0, 0); glVertex3f(position.x, position.y + (size.y / 2), position.z);
+	glColor3f(1,1, 0); glVertex3f(position.x + size.x, position.y + (size.y / 2), position.z);
+	glColor3f(1,1, 1); glVertex3f(position.x + size.x, position.y - (size.y / 2), position.z);
+	glColor3f(1,0, 1); glVertex3f(position.x, position.y - (size.y / 2), position.z);
+	glPopMatrix();
+
+	glPushMatrix();
+	glLoadIdentity();
+	glColor3f(1, 1, 1);
+	//back
+	glColor3f(1,0, 0); glVertex3f(position.x, position.y + (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 0); glVertex3f(position.x + size.x, position.y + (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 1); glVertex3f(position.x + size.x, position.y - (size.y / 2), position.z - size.x);
+	glColor3f(1,0, 1); glVertex3f(position.x, position.y - (size.y / 2), position.z - size.x);
+	glPopMatrix();
+
+	glPushMatrix();
+	glLoadIdentity();
+	glColor3f(1, 1, 1);
+	//left
+	glColor3f(1,0, 0); glVertex3f(position.x, position.y + (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 0); glVertex3f(position.x, position.y - (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 1); glVertex3f(position.x, position.y - (size.y / 2), position.z);
+	glColor3f(1,0, 1); glVertex3f(position.x, position.y + (size.y / 2), position.z);
+	glPopMatrix();
+
+	glPushMatrix();
+	glLoadIdentity();
+	glColor3f(1, 1, 1);
+	//right
+	glColor3f(1,0, 0); glVertex3f(position.x + size.x, position.y + (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 0); glVertex3f(position.x + size.x, position.y - (size.y / 2), position.z - size.x);
+	glColor3f(1,1, 1); glVertex3f(position.x + size.x, position.y - (size.y / 2), position.z);
+	glColor3f(1,0, 1); glVertex3f(position.x + size.x, position.y + (size.y / 2), position.z);
+	glPopMatrix();
+	glEnd();
+}
 void Cube::init()
 {
 	curTex = 0;

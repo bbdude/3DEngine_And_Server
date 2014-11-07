@@ -48,8 +48,11 @@ public:
 	void operator *= (float change);
 	void operator << (vector3 change);
 	void operator << (std::string change);
+	bool operator >= (vector3 change);
+	bool operator <= (vector3 change);
 	vector3 operator - (vector3 change);
 	vector3 operator + (vector3 change);
+	vector3 operator / (vector3 change);
 	vector3 operator - (float change);
 	vector3 operator + (float change);
 	vector3 operator * (float change);

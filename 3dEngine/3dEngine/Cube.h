@@ -30,6 +30,7 @@ public:
 	void loadGLTextures(int limit); void update();
 	void update(float lighInf, vector3 playerPos);
 	void draw(void);
+	void drawC(void);
 	void init();
 	void init(std::string file);
 	void fill(vector3 position, vector2 size, vector3 color, float angle);

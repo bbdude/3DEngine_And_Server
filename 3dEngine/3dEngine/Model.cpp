@@ -140,6 +140,24 @@ void Model::loadGLTextures(std::string file)
 }
 void Model::init(std::string part)
 {
+	/*for (int i = 1; i < 7; i++)
+	{
+		std::string name = "frame" + std::to_string(i);
+		if (part == "head")
+		{
+			loadOBJ("facecolor.obj", vertices[name], uvs[name], normals[name]);
+			loadGLTextures("facemeshtestcolor.png");
+		}
+		else if (part == "body")
+		{
+			//loadOBJ("body.obj", vertices, uvs, normals);
+			std::string file = "\BodyFrames\bodyfm" + i;
+			file += ".obj";
+			loadOBJ(file.c_str(), vertices[name], uvs[name], normals[name]);
+			loadGLTextures("bodypaint.png");
+		}
+		frames++;
+	}*/
 	if (part == "head")
 	{
 		loadOBJ("facecolor.obj", vertices, uvs, normals);
@@ -147,6 +165,9 @@ void Model::init(std::string part)
 	}
 	else if (part == "body")
 	{
+		//loadOBJ("body.obj", vertices, uvs, normals);
+		//std::string file = "\BodyFrames\bodyfm" + i;
+		//file += ".obj";
 		loadOBJ("body.obj", vertices, uvs, normals);
 		loadGLTextures("bodypaint.png");
 	}
@@ -159,17 +180,33 @@ void Model::draw()
 	glBegin(GL_TRIANGLES);
 	glPushMatrix();
 	glLoadIdentity();
-	//glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClearColor(0.0, 0.0, 0.0, 0.0);
 	//glColor3f(1, 1, 1);
+
+	/*std::string name = "frame" + std::to_string(currentFrame);
+	for (int l_index = 0; l_index < vertices[name].size(); l_index++)
+	{
+		glTexCoord2f(uvs[name][l_index].x, uvs[name][l_index].y);
+		glVertex3f(vertices[name][l_index].x * 5, vertices[name][l_index].y * 5, vertices[name][l_index].z * 5);
+	}*/
 	for (int l_index = 0; l_index < vertices.size(); l_index++)
 	{
 		glTexCoord2f(uvs[l_index].x, uvs[l_index].y);
 		glVertex3f(vertices[l_index].x * 5, vertices[l_index].y * 5, vertices[l_index].z * 5);
 	}
+
 	glDisable(GL_TEXTURE_2D);
 	glEnd();
 	glPopMatrix();
 	shader.unbind();
+	/*time++;
+	if (time >= 500)
+	{
+		currentFrame++;
+		if (currentFrame > frames)
+			currentFrame = 1;
+		time = 0;
+	}*/
 }
 /*void Model::setShaders() {
 

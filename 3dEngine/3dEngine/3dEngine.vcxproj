@@ -91,6 +91,7 @@
     <ClInclude Include="GControl.h" />
     <ClInclude Include="glut.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="ParticleEffect.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="SOIL.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GControl.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="ParticleEffect.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -134,6 +136,36 @@
     <Image Include="icon1.png" />
     <Image Include="icon2.png" />
     <Image Include="person.png" />
+    <Image Include="TalentImages\Acceptance.png" />
+    <Image Include="TalentImages\Blink.png" />
+    <Image Include="TalentImages\Blood_Pool.png" />
+    <Image Include="TalentImages\Boil.png" />
+    <Image Include="TalentImages\Consume.png" />
+    <Image Include="TalentImages\Cull.png" />
+    <Image Include="TalentImages\Darkness_Incarnate.png" />
+    <Image Include="TalentImages\Decimate.png" />
+    <Image Include="TalentImages\Deny.png" />
+    <Image Include="TalentImages\Embrace.png" />
+    <Image Include="TalentImages\Feed.png" />
+    <Image Include="TalentImages\Fire_Bloom.png" />
+    <Image Include="TalentImages\Forgiveness.png" />
+    <Image Include="TalentImages\Herald.png" />
+    <Image Include="TalentImages\Horde.png" />
+    <Image Include="TalentImages\Icy_Protection.png" />
+    <Image Include="TalentImages\Light_Pool.png" />
+    <Image Include="TalentImages\Messiah.png" />
+    <Image Include="TalentImages\Populate.png" />
+    <Image Include="TalentImages\Quake.png" />
+    <Image Include="TalentImages\Repent.png" />
+    <Image Include="TalentImages\Resistance.png" />
+    <Image Include="TalentImages\Share.png" />
+    <Image Include="TalentImages\Shatter.png" />
+    <Image Include="TalentImages\Skys_Reach.png" />
+    <Image Include="TalentImages\Teir.png" />
+    <Image Include="TalentImages\Torment.png" />
+    <Image Include="TalentImages\Transfer.png" />
+    <Image Include="TalentImages\UnBurden.png" />
+    <Image Include="TalentImages\UnVeil.png" />
     <Image Include="template.png" />
     <Image Include="templateAdvanced.png" />
     <Image Include="treeTemplate.png" />
@@ -169,6 +201,36 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </Object>
+    <Resource Include="BodyFrames\bodyfm1.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm2.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm3.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm4.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm5.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm6.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
     <Object Include="box_realistic.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

@@ -21,6 +21,7 @@
 #include "Entity.h"
 #include "TalentTree.h"
 #include "ActionBar.h"
+#include "ParticleEffect.h"
 
 class GControl
 {
@@ -28,6 +29,7 @@ public:
 	//Var
 	ActionBar abar = ActionBar();
 	TalentTree tree = TalentTree();
+	ParticleEffect effectTest = ParticleEffect();
 	
 	Player player;
 	Cube floor;

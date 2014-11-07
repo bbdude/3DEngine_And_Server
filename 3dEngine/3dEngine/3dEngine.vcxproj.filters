@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Tiny">
       <UniqueIdentifier>{5d11e172-002c-4824-bf98-b3b71a5394c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\TalentImages">
+      <UniqueIdentifier>{7322cfb3-b314-446d-a972-4fefed556be3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\BodyFrames">
+      <UniqueIdentifier>{e40fa2ea-193a-46bd-ace5-88f58a410b7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -81,6 +87,9 @@
     <ClInclude Include="tinystr.h">
       <Filter>Header Files\Tiny</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -140,6 +149,9 @@
     <ClCompile Include="tinyxmlparser.cpp">
       <Filter>Source Files\Tiny</Filter>
     </ClCompile>
+    <ClCompile Include="ParticleEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="cube.png">
@@ -177,6 +189,96 @@
     </Image>
     <Image Include="facemeshtestcolor.png">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TalentImages\Acceptance.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Blink.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Blood_Pool.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Boil.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Consume.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Cull.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Darkness_Incarnate.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Decimate.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Deny.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Embrace.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Feed.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Fire_Bloom.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Forgiveness.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Herald.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Horde.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Icy_Protection.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Light_Pool.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Messiah.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Populate.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Quake.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Repent.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Resistance.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Share.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Shatter.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Skys_Reach.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Teir.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Torment.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Transfer.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\UnBurden.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\UnVeil.png">
+      <Filter>Resource Files\TalentImages</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +333,24 @@
   <ItemGroup>
     <Resource Include="cube.obj">
       <Filter>Resource Files</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm1.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm2.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm3.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm4.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm5.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm6.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
     </Resource>
   </ItemGroup>
   <ItemGroup>

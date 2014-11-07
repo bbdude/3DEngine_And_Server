@@ -13,6 +13,7 @@ void GControl::draw()
 		element.draw();
 	//test.draw();
 	floor.draw();
+	effectTest.draw();
 	//testHead.draw();
 	//testBody.draw();
 	if (testEntity.health > 0)
@@ -37,16 +38,21 @@ void GControl::drawGui()
 
 	glClear(GL_DEPTH_BUFFER_BIT);
 	//glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
 	glBegin(GL_QUADS);
 	if (player.invTimer == 0)
-		glColor3f(1.0f, 0.0f, 0.0);
+		glColor3f(1.0f, 1.0f, 1.0);
 	else
 		glColor3f(1.0f, 0.0f, 1.0);
 
-	glVertex2f((screen.x / 2 - (screen.x / 6)) - 2.6*(100 - player.health), screen.y - (screen.y / 35));
+	/*glVertex2f((screen.x / 2 - (screen.x / 6)) - 2.6*(100 - player.health), screen.y - (screen.y / 35));
 	glVertex2f((screen.x / 2 - (screen.x / 6)) - 2.6*(100 - player.health), screen.y - (screen.y / 15));
 	glVertex2f((screen.x / 35), screen.y - (screen.y / 15));
-	glVertex2f((screen.x / 35), screen.y - (screen.y / 35));
+	glVertex2f((screen.x / 35), screen.y - (screen.y / 35));*/
+	glVertex2f((screen.x / 2 - (screen.x / 6)) - 2.6*(100 - player.health), 0 + (screen.y / 35));
+	glVertex2f((screen.x / 2 - (screen.x / 6)) - 2.6*(100 - player.health), 0 + (screen.y / 15));
+	glVertex2f((screen.x / 35), 0 + (screen.y / 15));
+	glVertex2f((screen.x / 35), 0 + (screen.y / 35));
 	glEnd();
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
@@ -200,6 +206,9 @@ void GControl::update(ClientDlg * dlg)
 			ico = it->second;
 
 			abar.icons["icon1"].run();
+
+			effectTest = ParticleEffect();
+			effectTest.pushOutMovement(player.position, vector3(50, 50, 50), vector4(1, 0, 1, 1), 20);
 			//keyState['1'] = false;
 		}
 	}
@@ -348,6 +357,8 @@ void GControl::fireBullet(vector3 & playerPos, float angle, float lx, float ly, 
 		newBullet.position.y = playerPos.y;
 		newBullet.color.fill(0.5f, 0.5f, 0.5f);
 		bullets.push_back(newBullet);
+		//effectTest = ParticleEffect();
+		//effectTest.createSpawnPoint(newBullet.position, vector3(5, 5, 5), vector4(1, 0, 1, 1), 20);
 	//}
 	//else
 	//	reloadGun = true;
@@ -390,7 +401,8 @@ void GControl::init()
 	abar.loadGLTexturesIco("icon1.png", "icon1");
 	abar.loadGLTexturesIco("icon2.png", "icon2");
 
-	tree.loadGLTextures("templateAdvanced.png");
+	tree.loadGLTextures("template.png");
 	tree.loadData();
 
+	effectTest = ParticleEffect();
 }

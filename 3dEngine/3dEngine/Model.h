@@ -14,6 +14,9 @@ class Model
 public:
 	Model();
 	~Model();
+	//int frames = 0;
+	//int currentFrame = 1;
+	//int time = 0;
 	GLuint	texture;
 	/*GLuint v;
 	GLuint f;
@@ -21,6 +24,9 @@ public:
 	GLuint p;*/
 	Shader shader = Shader();
 
+	//std::map<std::string,std::vector<vector3>> vertices;
+	//std::map<std::string, std::vector<vector2>> uvs;
+	//std::map<std::string, std::vector<vector3>> normals;
 	std::vector<vector3> vertices;
 	std::vector<vector2> uvs;
 	std::vector<vector3> normals;
