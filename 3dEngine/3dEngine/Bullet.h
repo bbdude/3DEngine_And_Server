@@ -15,5 +15,6 @@ public:
 	void updateSpeed();
 	vector3 speed;
 	bool killOff;
+	std::string tag = "";
 	//float angle;
 };

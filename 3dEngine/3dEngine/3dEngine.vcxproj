@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionBar.h" />
+    <ClInclude Include="AIhold.h" />
     <ClInclude Include="BasicShape.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="ClientCon.h" />
@@ -90,8 +91,17 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GControl.h" />
     <ClInclude Include="glut.h" />
+    <ClInclude Include="Maths\COLOR.h" />
+    <ClInclude Include="Maths\Maths.h" />
+    <ClInclude Include="Maths\MATRIX4X4.h" />
+    <ClInclude Include="Maths\PLANE.h" />
+    <ClInclude Include="Maths\stdafx.h" />
+    <ClInclude Include="Maths\VECTOR2D.h" />
+    <ClInclude Include="Maths\VECTOR3D.h" />
+    <ClInclude Include="Maths\VECTOR4D.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ParticleEffect.h" />
+    <ClInclude Include="Pathfinding.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="SOIL.h" />
@@ -105,6 +115,7 @@
   <ItemGroup>
     <ClCompile Include="3dEngine.cpp" />
     <ClCompile Include="ActionBar.cpp" />
+    <ClCompile Include="AIhold.cpp" />
     <ClCompile Include="BasicShape.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ClientCon.cpp" />
@@ -112,8 +123,16 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GControl.cpp" />
+    <ClCompile Include="Maths\COLOR.cpp" />
+    <ClCompile Include="Maths\MATRIX4X4.cpp" />
+    <ClCompile Include="Maths\PLANE.cpp" />
+    <ClCompile Include="Maths\stdafx.cpp" />
+    <ClCompile Include="Maths\VECTOR2D.cpp" />
+    <ClCompile Include="Maths\VECTOR3D.cpp" />
+    <ClCompile Include="Maths\VECTOR4D.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ParticleEffect.cpp" />
+    <ClCompile Include="Pathfinding.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -231,6 +250,30 @@
       <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </Resource>
+    <Object Include="bodyfm1.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="bodyfm2.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="bodyfm3.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="bodyfm4.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="bodyfm5.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="bodyfm6.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
     <Object Include="box_realistic.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

@@ -140,25 +140,27 @@ void Model::loadGLTextures(std::string file)
 }
 void Model::init(std::string part)
 {
-	/*for (int i = 1; i < 7; i++)
+	vertices = std::vector<std::vector<vector3>>(6);
+	uvs = std::vector<std::vector<vector2>>(6);
+	normals = std::vector<std::vector<vector3>>(6);
+	for (int i = 1; i < 7; i++)
 	{
-		std::string name = "frame" + std::to_string(i);
 		if (part == "head")
 		{
-			loadOBJ("facecolor.obj", vertices[name], uvs[name], normals[name]);
+			loadOBJ("facecolor.obj", vertices[i-1], uvs[i-1], normals[i-1]);
 			loadGLTextures("facemeshtestcolor.png");
 		}
 		else if (part == "body")
 		{
-			//loadOBJ("body.obj", vertices, uvs, normals);
-			std::string file = "\BodyFrames\bodyfm" + i;
+			//loadOBJ("body.obj", vertices[i], uvs[i], normals[i]);
+			std::string file = "bodyfm" + std::to_string(i);
 			file += ".obj";
-			loadOBJ(file.c_str(), vertices[name], uvs[name], normals[name]);
+			loadOBJ(file.c_str(), vertices[i-1], uvs[i-1], normals[i-1]);
 			loadGLTextures("bodypaint.png");
 		}
 		frames++;
-	}*/
-	if (part == "head")
+	}
+	/*if (part == "head")
 	{
 		loadOBJ("facecolor.obj", vertices, uvs, normals);
 		loadGLTextures("facemeshtestcolor.png");
@@ -170,7 +172,7 @@ void Model::init(std::string part)
 		//file += ".obj";
 		loadOBJ("body.obj", vertices, uvs, normals);
 		loadGLTextures("bodypaint.png");
-	}
+	}*/
 }
 void Model::draw()
 {
@@ -183,30 +185,38 @@ void Model::draw()
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	//glColor3f(1, 1, 1);
 
-	/*std::string name = "frame" + std::to_string(currentFrame);
-	for (int l_index = 0; l_index < vertices[name].size(); l_index++)
+	//std::string name = "frame" + std::to_string(currentFrame);
+	int name = currentFrame;
+	/*for (int l_index = 0; l_index < vertices[name].size(); l_index++)
+	//for (auto & i: vertices)
 	{
+		//glTexCoord2f(uvs.at(name).at())
 		glTexCoord2f(uvs[name][l_index].x, uvs[name][l_index].y);
 		glVertex3f(vertices[name][l_index].x * 5, vertices[name][l_index].y * 5, vertices[name][l_index].z * 5);
 	}*/
-	for (int l_index = 0; l_index < vertices.size(); l_index++)
+	for (int l_index = 0; l_index < vertices[currentFrame].size(); l_index++)
+	{
+		glTexCoord2f(uvs[currentFrame][l_index].x, uvs[currentFrame][l_index].y);
+		glVertex3f(vertices[currentFrame][l_index].x * 5, vertices[currentFrame][l_index].y * 5, vertices[currentFrame][l_index].z * 5);
+	}
+	/*for (int l_index = 0; l_index < vertices.size(); l_index++)
 	{
 		glTexCoord2f(uvs[l_index].x, uvs[l_index].y);
 		glVertex3f(vertices[l_index].x * 5, vertices[l_index].y * 5, vertices[l_index].z * 5);
-	}
+	}*/
 
 	glDisable(GL_TEXTURE_2D);
 	glEnd();
 	glPopMatrix();
 	shader.unbind();
-	/*time++;
+	time++;
 	if (time >= 500)
 	{
 		currentFrame++;
-		if (currentFrame > frames)
-			currentFrame = 1;
+		if (currentFrame >= frames)
+			currentFrame = 0;
 		time = 0;
-	}*/
+	}
 }
 /*void Model::setShaders() {
 

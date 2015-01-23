@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0381600E-78BA-444D-BB9D-641BB58DB102}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>My3dEngine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glew32d.lib;glut32.lib;glu32.lib;tinyxml.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glew32d.lib;glut32.lib;glu32.lib;tinyxml.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ActionBar.h" />
+    <ClInclude Include="BasicShape.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ClientCon.h" />
+    <ClInclude Include="ClientDlg.h" />
+    <ClInclude Include="Cube.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="GControl.h" />
+    <ClInclude Include="glut.h" />
+    <ClInclude Include="Maths\COLOR.h" />
+    <ClInclude Include="Maths\Maths.h" />
+    <ClInclude Include="Maths\MATRIX4X4.h" />
+    <ClInclude Include="Maths\PLANE.h" />
+    <ClInclude Include="Maths\VECTOR2D.h" />
+    <ClInclude Include="Maths\VECTOR3D.h" />
+    <ClInclude Include="Maths\VECTOR4D.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="ParticleEffect.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="shader.h" />
+    <ClInclude Include="SOIL.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TalentTree.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="tinystr.h" />
+    <ClInclude Include="tinyxml.h" />
+    <ClInclude Include="VectorLib.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="3dEngine.cpp" />
+    <ClCompile Include="ActionBar.cpp" />
+    <ClCompile Include="BasicShape.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="ClientCon.cpp" />
+    <ClCompile Include="ClientDlg.cpp" />
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="GControl.cpp" />
+    <ClCompile Include="Maths\COLOR.cpp" />
+    <ClCompile Include="Maths\MATRIX4X4.cpp" />
+    <ClCompile Include="Maths\PLANE.cpp" />
+    <ClCompile Include="Maths\VECTOR2D.cpp" />
+    <ClCompile Include="Maths\VECTOR3D.cpp" />
+    <ClCompile Include="Maths\VECTOR4D.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="ParticleEffect.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TalentTree.cpp" />
+    <ClCompile Include="tinystr.cpp" />
+    <ClCompile Include="tinyxml.cpp" />
+    <ClCompile Include="tinyxmlerror.cpp" />
+    <ClCompile Include="tinyxmlparser.cpp" />
+    <ClCompile Include="VectorLib.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Debug\person.png" />
+    <Image Include="actionBar.png" />
+    <Image Include="cube.png" />
+    <Image Include="facemeshtestcolor.png" />
+    <Image Include="floor.png" />
+    <Image Include="icon1.png" />
+    <Image Include="icon2.png" />
+    <Image Include="person.png" />
+    <Image Include="TalentImages\Acceptance.png" />
+    <Image Include="TalentImages\Blink.png" />
+    <Image Include="TalentImages\Blood_Pool.png" />
+    <Image Include="TalentImages\Boil.png" />
+    <Image Include="TalentImages\Consume.png" />
+    <Image Include="TalentImages\Cull.png" />
+    <Image Include="TalentImages\Darkness_Incarnate.png" />
+    <Image Include="TalentImages\Decimate.png" />
+    <Image Include="TalentImages\Deny.png" />
+    <Image Include="TalentImages\Embrace.png" />
+    <Image Include="TalentImages\Feed.png" />
+    <Image Include="TalentImages\Fire_Bloom.png" />
+    <Image Include="TalentImages\Forgiveness.png" />
+    <Image Include="TalentImages\Herald.png" />
+    <Image Include="TalentImages\Horde.png" />
+    <Image Include="TalentImages\Icy_Protection.png" />
+    <Image Include="TalentImages\Light_Pool.png" />
+    <Image Include="TalentImages\Messiah.png" />
+    <Image Include="TalentImages\Populate.png" />
+    <Image Include="TalentImages\Quake.png" />
+    <Image Include="TalentImages\Repent.png" />
+    <Image Include="TalentImages\Resistance.png" />
+    <Image Include="TalentImages\Share.png" />
+    <Image Include="TalentImages\Shatter.png" />
+    <Image Include="TalentImages\Skys_Reach.png" />
+    <Image Include="TalentImages\Teir.png" />
+    <Image Include="TalentImages\Torment.png" />
+    <Image Include="TalentImages\Transfer.png" />
+    <Image Include="TalentImages\UnBurden.png" />
+    <Image Include="TalentImages\UnVeil.png" />
+    <Image Include="template.png" />
+    <Image Include="templateAdvanced.png" />
+    <Image Include="treeTemplate.png" />
+    <Image Include="wood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="glew32d.dll" />
+    <None Include="glut.def" />
+    <None Include="glut32.dll" />
+    <None Include="shader.frag" />
+    <None Include="shader.vert" />
+    <None Include="tinyxml2.dll" />
+    <None Include="toon.frag" />
+    <None Include="toon.vert" />
+    <None Include="toon2.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="glew32d.lib" />
+    <Library Include="glut32.lib" />
+    <Library Include="SOIL.lib" />
+    <Library Include="tinyxml.lib" />
+    <Library Include="tinyxml2.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cube.obj">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="barn.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Resource Include="BodyFrames\bodyfm1.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm2.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm3.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm4.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm5.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm6.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Resource>
+    <Object Include="box_realistic.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="cubemorf.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="face.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="facecolor.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="LevelData.xml" />
+    <Xml Include="ttree.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

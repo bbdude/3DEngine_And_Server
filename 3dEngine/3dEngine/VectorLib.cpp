@@ -204,6 +204,22 @@ bool vector3::operator>= (vector3 change)
 		return false;
 	return true;
 }
+bool vector3::equals(vector3 change)
+{
+	if (x == change.x && y == change.y && z == change.z)
+	{
+		return true;
+	} return false;
+}
+bool vector3::closeequals(vector3 change,float wd)
+{
+	if (x + wd >= change.x && x - wd <= change.x &&
+		y + wd >= change.y && y - wd <= change.y &&
+		z + wd >= change.z && z - wd <= change.z)
+	{
+		return true;
+	} return false;
+}
 vector3 vector3::operator - (vector3 change)
 {
 	vector3 temp(x - change.x,y - change.y,z - change.z);

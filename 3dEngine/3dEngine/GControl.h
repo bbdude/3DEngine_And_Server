@@ -22,6 +22,7 @@
 #include "TalentTree.h"
 #include "ActionBar.h"
 #include "ParticleEffect.h"
+#include "AIhold.h"
 
 class GControl
 {
@@ -35,12 +36,17 @@ public:
 	Cube floor;
 	//Cube test;
 	Entity testEntity;
+	Entity followtestEntity;
 	//Model testHead;
 	//Model testBody;
 	std::vector<Cube> cubes = std::vector<Cube>(3);
+	std::vector<Cube> aiCubes = std::vector<Cube>(0);
 	std::vector<Bullet> bullets = std::vector<Bullet>(0);
 	Bullet masterBullet;
 	int updateTimer = 0;
+	
+	bool reloaded = false;
+	bool reloadedf = false;
 	bool hitOP = false;
 	bool hitME = false;
 	bool showTree = false;
@@ -63,5 +69,6 @@ public:
 	void update(ClientDlg * dlg);
 	void init();
 	void fireBullet(vector3 & playerPos, float angle, float lx, float ly, float lz);
+	void fireBullet(vector3 & playerPos, float angle, float lx, float ly, float lz,string tag);
 };
 

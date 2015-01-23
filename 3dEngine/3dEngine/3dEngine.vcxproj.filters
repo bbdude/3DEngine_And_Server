@@ -25,6 +25,12 @@
     <Filter Include="Resource Files\BodyFrames">
       <UniqueIdentifier>{e40fa2ea-193a-46bd-ace5-88f58a410b7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Maths">
+      <UniqueIdentifier>{1adfc774-7b40-45db-99d8-18c09b4020d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Maths">
+      <UniqueIdentifier>{7b6b8364-7c1f-4cf7-81ff-cfe1ca2df5cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -90,6 +96,36 @@
     <ClInclude Include="ParticleEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Maths\COLOR.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Maths.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\MATRIX4X4.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\PLANE.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\stdafx.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR2D.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR3D.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR4D.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="AIhold.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pathfinding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -150,6 +186,33 @@
       <Filter>Source Files\Tiny</Filter>
     </ClCompile>
     <ClCompile Include="ParticleEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\COLOR.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\MATRIX4X4.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\PLANE.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\stdafx.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR2D.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR3D.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR4D.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="AIhold.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pathfinding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -327,6 +390,24 @@
       <Filter>Resource Files</Filter>
     </Object>
     <Object Include="facecolor.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="bodyfm1.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="bodyfm2.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="bodyfm3.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="bodyfm4.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="bodyfm5.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="bodyfm6.obj">
       <Filter>Resource Files</Filter>
     </Object>
   </ItemGroup>

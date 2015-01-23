@@ -50,6 +50,8 @@ public:
 	void operator << (std::string change);
 	bool operator >= (vector3 change);
 	bool operator <= (vector3 change);
+	bool equals(vector3 change);
+	bool closeequals(vector3 change,float wd);
 	vector3 operator - (vector3 change);
 	vector3 operator + (vector3 change);
 	vector3 operator / (vector3 change);

@@ -7,22 +7,111 @@ GControl::~GControl(){}
 void GControl::draw()
 {
 	//tree.draw();
-	for (auto & element : cubes)
-		element.draw();
+	//glDisable(GL_TEXTURE_2D);
+	//glActiveTexture(GL_TEXTURE1);
+	//ffor (auto & element : cubes)
+	//f	element.draw();
+	for (auto & element : aiCubes)
+	{
+		if (element.light == 5)
+			element.drawC();
+		else
+			element.draw();
+	}
 	for (auto & element : bullets)
 		element.draw();
 	//test.draw();
-	floor.draw();
-	effectTest.draw();
+	//ffloor.draw();
+	//effectTest.draw();
 	//testHead.draw();
 	//testBody.draw();
 	if (testEntity.health > 0)
+	{
 		testEntity.draw();
+		int i = 1;
+		for (auto element : testEntity.aiHold.nextPath)
+		{
+			if (!element.equals(testEntity.aiHold.nextPath.back()))
+			{
+				glClearColor(1, 1, 1, 1);
+				glLineWidth(2.5);
+				glBegin(GL_LINES);
+				glColor3f(0.0f, 0.0f, 1.0f);
+				glVertex3f(element.x * 10, -15, element.z * 10);
+				glVertex3f(testEntity.aiHold.nextPath[i].x * 10, -15, testEntity.aiHold.nextPath[i].z * 10);
+				glEnd();
+			}
+			else
+			{
+				break;
+			}
+			i++;
+		}
+		if (testEntity.aiHold.nextPath.empty())
+		{
+			testEntity.addPoint(followtestEntity.position);
+		}
+	}if (followtestEntity.health > 0)
+	{
+		followtestEntity.draw();
+		int i = 1;
+		for (auto element : followtestEntity.aiHold.nextPath)
+		{
+			if (!element.equals(followtestEntity.aiHold.nextPath.back()))
+			{
+				glClearColor(1, 1, 1, 1);
+				glLineWidth(2.5);
+				glBegin(GL_LINES);
+				glColor3f(0.0f, 0.0f, 1.0f);
+				glVertex3f(element.x * 10, -15, element.z * 10);
+				glVertex3f(followtestEntity.aiHold.nextPath[i].x * 10, -15, followtestEntity.aiHold.nextPath[i].z * 10);
+				glEnd();
+			}
+			else
+			{
+				break;
+			}
+			i++;
+		}
+		if (followtestEntity.aiHold.nextPath.empty())
+		{
+			vector3 tempPos = vector3(290,0,290);
+			tempPos -= testEntity.position;
+			//tempPos.x = (rand() % 29) * 10;
+			followtestEntity.addPoint(tempPos);
+		}
+		else if (followtestEntity.aiHold.followStepsTaken >= 5)
+		{
+			followtestEntity.aiHold.nextPath.clear();
+			vector3 tempPos = vector3(290, 0, 290);
+			tempPos -= testEntity.position;
+			//tempPos.x = (rand() % 29) * 10;
+			followtestEntity.addPoint(tempPos);
+			followtestEntity.aiHold.followStepsTaken = 0;
+			
+			/*if (testEntity.position.x > followtestEntity.position.x)
+				xcoord = 1;
+			else if (testEntity.position.x < followtestEntity.position.x)
+				xcoord = -1;
 
-	drawGui();
-	if (showTree)
-		tree.draw();
-	abar.draw();
+
+			if (testEntity.position.z > followtestEntity.position.z)
+				zcoord = 1;
+			else if (testEntity.position.z < followtestEntity.position.z)
+				zcoord = -1;
+
+			vector3 testCoords = followtestEntity.position - testEntity.position;
+			if (testCoords.x < testCoords.z)
+				fireBullet(followtestEntity.position, 0, xcoord, 0, 0);
+			else
+				fireBullet(followtestEntity.position, 0, 0, 0, zcoord);*/
+
+		}
+	}
+	///drawGui();
+	///if (showTree)
+	///	tree.draw();
+	///abar.draw();
 
 	//abar.draw();
 }
@@ -78,6 +167,8 @@ void GControl::update(ClientDlg * dlg)
 	}
 	else if (updateTimer >= 50)
 	{
+		reloaded = true;
+		reloadedf = true;
 		if (!dlg->m_pClient->failure)
 		{
 			char server_reply[2000];
@@ -90,7 +181,7 @@ void GControl::update(ClientDlg * dlg)
 				for (int i = 0; i < 5; i++)
 					if (server_reply[i] != username[i])
 					{
-					read = true;
+						read = true;
 					}
 				if (read && server_reply[7] != ' ')
 				{
@@ -140,7 +231,7 @@ void GControl::update(ClientDlg * dlg)
 		}
 		updateTimer = 0;
 	}
-	
+
 
 	for (auto & element : cubes){
 		vector3 newPos = vector3(player.position);
@@ -169,8 +260,8 @@ void GControl::update(ClientDlg * dlg)
 		//player.size = vector3(4,0, 4);
 		/*if (testEntity.testColl(newPos, player.size))
 		{
-			newPos.z -= player.speed.z;
-			player.speed.z = 0;
+		newPos.z -= player.speed.z;
+		player.speed.z = 0;
 		}*/
 
 
@@ -180,9 +271,15 @@ void GControl::update(ClientDlg * dlg)
 			{
 				elemb.killOff = true;
 			}
-			if (testEntity.testColl(elemb.position, vector3(elemb.size.x, elemb.size.y, elemb.size.x)))
+			if (testEntity.testColl(elemb.position, vector3(elemb.size.x, elemb.size.y, elemb.size.x)) && elemb.tag != "te")
 			{
 				testEntity.health -= 5;
+				elemb.killOff = true;
+				std::cout << "HIT";// +testEntity.health;
+			}
+			if (followtestEntity.testColl(elemb.position, vector3(elemb.size.x, elemb.size.y, elemb.size.x)) && elemb.tag != "tf")
+			{
+				followtestEntity.health -= 5;
 				elemb.killOff = true;
 				std::cout << "HIT";// +testEntity.health;
 			}
@@ -194,7 +291,7 @@ void GControl::update(ClientDlg * dlg)
 	default:
 	break;
 	}*/
-	
+
 	if (keyState['1'])
 	{
 		//icons;
@@ -311,11 +408,18 @@ void GControl::update(ClientDlg * dlg)
 			abar.icons["icon0"].run();
 		}
 	}
-	
+
 	abar.update();
 	//test.update(0, vector3(0, 0, 0));
 	//if (testEntity.health 
-	testEntity.update();
+	testEntity.update(player.position);
+	followtestEntity.update(player.position);
+	if (/*rand() % 100 == 25 && */testEntity.aiHold.nextPath.size() == 2 && followtestEntity.aiHold.nextPath.size() == 1)
+	{
+		followtestEntity.addPoint(testEntity.position);
+	}
+	//testEntity.position += AIhold::walkFunction(vector3(100, 0, 100), testEntity.position);
+
 	for (auto & element : cubes)
 		element.update(0, player.position);
 	auto i = std::begin(bullets);
@@ -337,31 +441,80 @@ void GControl::update(ClientDlg * dlg)
 	/*for (auto & element : bullets)
 	{
 	}*/
+
+	int xcoord = 0;
+	int zcoord = 0;
+
+	if (testEntity.position.x > followtestEntity.position.x)
+		xcoord = 1;
+	else if (testEntity.position.x < followtestEntity.position.x)
+		xcoord = -1;
+	if (testEntity.position.z > followtestEntity.position.z)
+		zcoord = 1;
+	else if (testEntity.position.z < followtestEntity.position.z)
+		zcoord = -1;
+
+	int convertedCoordx = testEntity.position.x / 4;
+	int convertedCoordxf = followtestEntity.position.x / 4;
+	int convertedCoordz = testEntity.position.x / 4;
+	int convertedCoordzf = followtestEntity.position.x / 4;
+
+	//testEntity.position.closeequals()
+	if (convertedCoordx == convertedCoordxf && reloadedf)
+	{
+		fireBullet(followtestEntity.position, 0, 0, 0, zcoord, "tf");
+		reloadedf = false;
+	}
+	else if (convertedCoordz == convertedCoordzf && reloadedf)
+	{
+		fireBullet(followtestEntity.position, 0, xcoord, 0, 0,"tf");
+		reloadedf = false;
+	}
+
+	if (testEntity.aiHold.followStepsTaken == 5)
+	{
+		testEntity.aiHold.followStepsTaken = 0;
+		fireBullet(testEntity.position, 0, 1, 0, 0,"te");
+		fireBullet(testEntity.position, 0, -1, 0, 0,"te");
+		fireBullet(testEntity.position, 0, 0, 0, 1,"te");
+		fireBullet(testEntity.position, 0, 0, 0, -1,"te");
+
+	}
+
 	floor.update(0, vector3(0, 0, 0));
 	player.update(true);
+
 
 }
 void GControl::fireBullet(vector3 & playerPos, float angle, float lx, float ly, float lz)
 {
-	//if (whatBullet < 10)
-	//{
-		//whatBullet++;
-		Bullet newBullet(masterBullet);
-		newBullet.angle = angle;
-		newBullet.position = playerPos;
-		newBullet.size.x = 3;
-		newBullet.size.y = 2;
-		newBullet.speed.x = lx * 0.5f;
-		newBullet.speed.z = lz * 0.5f;
-		newBullet.speed.y = ly * 0.5f;
-		newBullet.position.y = playerPos.y;
-		newBullet.color.fill(0.5f, 0.5f, 0.5f);
-		bullets.push_back(newBullet);
-		//effectTest = ParticleEffect();
-		//effectTest.createSpawnPoint(newBullet.position, vector3(5, 5, 5), vector4(1, 0, 1, 1), 20);
-	//}
-	//else
-	//	reloadGun = true;
+	Bullet newBullet(masterBullet);
+	newBullet.angle = angle;
+	newBullet.position = playerPos;
+	newBullet.size.x = 3;
+	newBullet.size.y = 2;
+	newBullet.speed.x = lx * 0.5f;
+	newBullet.speed.z = lz * 0.5f;
+	newBullet.speed.y = ly * 0.5f;
+	newBullet.position.y = playerPos.y;
+	newBullet.color.fill(0.5f, 0.5f, 0.5f);
+	newBullet.tag = "";
+	bullets.push_back(newBullet);
+}
+void GControl::fireBullet(vector3 & playerPos, float angle, float lx, float ly, float lz,string tag)
+{
+	Bullet newBullet(masterBullet);
+	newBullet.angle = angle;
+	newBullet.position = playerPos;
+	newBullet.size.x = 3;
+	newBullet.size.y = 2;
+	newBullet.speed.x = lx * 0.5f;
+	newBullet.speed.z = lz * 0.5f;
+	newBullet.speed.y = ly * 0.5f;
+	newBullet.position.y = playerPos.y;
+	newBullet.color.fill(0.5f, 0.5f, 0.5f);
+	newBullet.tag = tag;
+	bullets.push_back(newBullet);
 }
 void GControl::init()
 {
@@ -369,6 +522,9 @@ void GControl::init()
 	//testHead.init("head");
 	//testBody.init("body");
 	testEntity.init();
+	testEntity.addPoint(vector3(100, 0, 140));
+	followtestEntity.init();
+	//followtestEntity.addPoint(vector3(0, 0, 290));
 	curr = GAME;
 	vector3 position(500, -20, -500);
 	vector3 color(0.4, 0.3, 0);
@@ -405,4 +561,30 @@ void GControl::init()
 	tree.loadData();
 
 	effectTest = ParticleEffect();
+
+	for (int i = 0; i < 30; i++)
+	{
+		for (int ii = 0; ii < 30; ii++)
+		{
+			/*
+			for (int i = 5; i < 25; i++)
+			{
+			map[i][m / 2] = 1;
+			}for (int i = 5; i < 25; i++)
+			{
+			map[n / 2][i] = 1;
+			}
+			*/
+			Cube newCube = Cube(i * 10, -15, ii * 10, 1, 1);
+			newCube.light = 0;
+
+			if ((i == 16 && ii > 5 && ii < 26))
+				newCube.light = 5;
+			else if ((ii == 16 && i > 5 && i < 26))
+				newCube.light  = 5;
+				//newCube.color = vector3(1, 0, 0);
+			//newCube.init("icon2.png");
+			aiCubes.push_back(newCube);
+		}
+	}
 }

@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;obj;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Tiny">
+      <UniqueIdentifier>{a4c6986d-5cc9-4e21-aa43-2dfb7fbad66c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tiny">
+      <UniqueIdentifier>{5d11e172-002c-4824-bf98-b3b71a5394c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\TalentImages">
+      <UniqueIdentifier>{7322cfb3-b314-446d-a972-4fefed556be3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\BodyFrames">
+      <UniqueIdentifier>{e40fa2ea-193a-46bd-ace5-88f58a410b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Maths">
+      <UniqueIdentifier>{1b3106f1-2449-4032-9eba-ff2f03738909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Maths">
+      <UniqueIdentifier>{f9f2b7b3-aece-4cc0-b34b-7a12089dd8a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SOIL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicShape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientCon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TalentTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml.h">
+      <Filter>Header Files\Tiny</Filter>
+    </ClInclude>
+    <ClInclude Include="tinystr.h">
+      <Filter>Header Files\Tiny</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\COLOR.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Maths.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\MATRIX4X4.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\PLANE.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR2D.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR3D.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\VECTOR4D.h">
+      <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3dEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicShape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientCon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TalentTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinystr.cpp">
+      <Filter>Source Files\Tiny</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml.cpp">
+      <Filter>Source Files\Tiny</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlerror.cpp">
+      <Filter>Source Files\Tiny</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlparser.cpp">
+      <Filter>Source Files\Tiny</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\COLOR.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\MATRIX4X4.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\PLANE.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR2D.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR3D.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\VECTOR4D.cpp">
+      <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="cube.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="floor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="wood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="actionBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="icon2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="template.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="templateAdvanced.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="treeTemplate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\person.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="person.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="facemeshtestcolor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TalentImages\Acceptance.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Blink.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Blood_Pool.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Boil.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Consume.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Cull.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Darkness_Incarnate.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Decimate.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Deny.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Embrace.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Feed.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Fire_Bloom.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Forgiveness.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Herald.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Horde.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Icy_Protection.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Light_Pool.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Messiah.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Populate.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Quake.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Repent.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Resistance.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Share.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Shatter.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Skys_Reach.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Teir.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Torment.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\Transfer.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\UnBurden.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+    <Image Include="TalentImages\UnVeil.png">
+      <Filter>Resource Files\TalentImages</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="glut.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="glut32.dll" />
+    <None Include="toon.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="toon2.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="toon.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="glew32d.dll" />
+    <None Include="shader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="tinyxml2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="glut32.lib" />
+    <Library Include="SOIL.lib" />
+    <Library Include="glew32d.lib" />
+    <Library Include="tinyxml2.lib" />
+    <Library Include="tinyxml.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="box_realistic.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="barn.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="cubemorf.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="face.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="facecolor.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cube.obj">
+      <Filter>Resource Files</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm1.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm2.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm3.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm4.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm5.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+    <Resource Include="BodyFrames\bodyfm6.obj">
+      <Filter>Resource Files\BodyFrames</Filter>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="ttree.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="LevelData.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
